@@ -2,6 +2,7 @@
 // import { Formik } from 'formik';
 // import * as Yup from 'yup';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 import PropTypes from 'prop-types';
 import {
@@ -21,6 +22,10 @@ export const Searchbar = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (input.trim() === '') {
+      toast.error('Please enter search name.');
+      return;
+    }
     onSubmit(input);
 
     setInput('');

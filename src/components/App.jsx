@@ -7,6 +7,8 @@ import { Loader } from './Loader/Loader';
 import { Main } from './App.styled';
 import { ErrorMessage } from './ErrorMessage/ErrorMessage';
 import { Modal } from './Modal/Modal';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as Scroll from 'react-scroll';
 
 const Status = {
@@ -84,6 +86,7 @@ export const App = () => {
       {status === Status.RESOLVED && <Button onClick={loadMore} />}
       {status === Status.REJECTED && <ErrorMessage message={error.message} />}
       {showModal && <Modal onClose={togleModal} modalImage={modalImage} />}
+      <ToastContainer />
     </Main>
   );
 };
